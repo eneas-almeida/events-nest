@@ -1,6 +1,6 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { CreatePaymentCommand } from '../commands/create-payment.command';
-import { CreatePaymentService } from '../services/create-payment.service';
+import { CreatePaymentCommand } from '../create-payment.command';
+import { CreatePaymentService } from '../../services/create-payment.service';
 
 @CommandHandler(CreatePaymentCommand)
 export class CreatePaymentHandler implements ICommandHandler<CreatePaymentCommand> {

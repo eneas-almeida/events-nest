@@ -1,7 +1,7 @@
 import { Body, Controller, Post, Logger } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
-import { CreatePaymentCommand } from '../application/commands/create-payment.command';
-import { CreatePaymentDto } from './dtos/create-payment.dto';
+import { CreatePaymentDto } from '../../application/dtos/create-payment.dto';
+import { CreatePaymentCommand } from 'src/payments/application/commands/create-payment.command';
 
 @Controller('payments')
 export class PaymentsController {
