@@ -1,6 +1,6 @@
 export class CreatePaymentCommand {
     constructor(
-        public readonly flag: string,
+        public readonly amount: number,
         public readonly date: Date
     ) {}
 }

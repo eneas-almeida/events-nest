@@ -1,11 +1,7 @@
 import { Body, Controller, Post, Logger } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
-import { CreatePaymentCommand } from './application/commands/create-payment.command';
-
-export interface CreatePaymentDto {
-    flag: string;
-    date: Date;
-}
+import { CreatePaymentCommand } from '../application/commands/create-payment.command';
+import { CreatePaymentDto } from './dtos/create-payment.dto';
 
 @Controller('payments')
 export class PaymentsController {
@@ -15,9 +11,9 @@ export class PaymentsController {
 
     @Post()
     async createPayment(@Body() createPaymentDto: CreatePaymentDto) {
-        const { date, flag } = createPaymentDto;
+        const { date, amount } = createPaymentDto;
 
-        const command = new CreatePaymentCommand(flag, date);
+        const command = new CreatePaymentCommand(amount, date);
 
         const payment = await this.commandBus.execute(command);
 

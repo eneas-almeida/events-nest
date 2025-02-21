@@ -1,4 +1,3 @@
-// create-user.handler.ts
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { CreatePaymentCommand } from '../commands/create-payment.command';
 
@@ -7,10 +6,10 @@ export class CreatePaymentHandler implements ICommandHandler<CreatePaymentComman
     constructor() {}
 
     async execute(command: CreatePaymentCommand): Promise<any> {
-        const { flag, date } = command;
+        const { amount, date } = command;
 
         return {
-            flag,
+            amount,
             date,
         };
     }
