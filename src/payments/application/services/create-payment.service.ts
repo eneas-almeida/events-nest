@@ -3,8 +3,6 @@ import { CreatePaymentDto } from 'src/payments/application/dtos/create-payment.d
 import { PaymentDto } from 'src/payments/application/dtos/payment.dto';
 import { PaymentsRepository } from 'src/payments/infra/database/repositories/payments.repository';
 import { PaymentMapper } from '../mappers/payments.mapper';
-import { InjectRepository } from '@nestjs/typeorm';
-import { PaymentsEntity } from 'src/payments/infra/database/entities/payments.entity';
 
 @Injectable()
 export class CreatePaymentService {

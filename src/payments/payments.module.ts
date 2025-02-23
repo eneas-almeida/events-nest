@@ -5,8 +5,9 @@ import { CreatePaymentHandler } from './application/commands/handlers/create-pay
 import { GetPaymentsHandler } from './application/queries/handlers/get-payments-handler';
 import { CreatePaymentService } from './application/services/create-payment.service';
 import { PaymentsEntity } from './infra/database/entities/payments.entity';
-import { PaymentsController } from './presentation/controllers/payments.controller';
 import { PaymentsRepository } from './infra/database/repositories/payments.repository';
+import { PaymentsController } from './presentation/controllers/payments.controller';
+import { PaymentChangedHandler } from './infra/events/handlers/payment-changed-handler';
 
 @Module({
     imports: [TypeOrmModule.forFeature([PaymentsEntity]), CqrsModule],
@@ -16,6 +17,7 @@ import { PaymentsRepository } from './infra/database/repositories/payments.repos
         CreatePaymentHandler,
         GetPaymentsHandler,
         CreatePaymentService,
+        PaymentChangedHandler,
     ],
 })
 export class PaymentsModule {}

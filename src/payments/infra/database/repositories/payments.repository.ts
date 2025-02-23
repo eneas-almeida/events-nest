@@ -20,6 +20,7 @@ export class PaymentsRepository {
     }
 
     async list(): Promise<Payment[]> {
-        return this.paymentsRepository.find();
+        const payments = await this.paymentsRepository.find();
+        return [];
     }
 }

@@ -1,13 +1,16 @@
-import { v4 } from 'uuid';
+import { AggregateRoot } from '@nestjs/cqrs';
+import { PaymentChangedEvent } from 'src/payments/infra/events/payment-changed.event';
 
-export class Payment {
-    id: string;
-    amount: number;
-    date: Date;
+export class Payment extends AggregateRoot {
+    constructor(
+        public id: string,
+        public amount: number,
+        public date: Date
+    ) {
+        super();
+    }
 
-    constructor(amount: number, date: Date, id?: string) {
-        this.id = id || v4();
-        this.amount = amount;
-        this.date = date;
+    sendPayment(newAmount: number): void {
+        //this.apply(new PaymentChangedEvent(this.id, this.amount));
     }
 }

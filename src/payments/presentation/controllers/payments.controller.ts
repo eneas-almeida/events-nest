@@ -14,12 +14,10 @@ export class PaymentsController {
     ) {}
 
     @Post()
-    async createPayment(@Body() createPaymentDto: CreatePaymentDto): Promise<PaymentDto> {
+    async createPayment(@Body() createPaymentDto: CreatePaymentDto): Promise<void> {
         const { date, amount } = createPaymentDto;
-        const command = new CreatePaymentCommand(amount, date);
-        const payment = await this.commandBus.execute(command);
-        const paymentDto = PaymentMapper.toDto(payment);
-        return paymentDto;
+        const command = new CreatePaymentCommand('21291', amount, date);
+        await this.commandBus.execute(command);
     }
 
     @Get()

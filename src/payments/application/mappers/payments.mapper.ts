@@ -4,7 +4,7 @@ import { PaymentsEntity } from 'src/payments/infra/database/entities/payments.en
 
 export class PaymentMapper {
     static toEntity(paymentDto: PaymentDto): Payment {
-        const payment = new Payment(paymentDto.amount, paymentDto.date);
+        const payment = new Payment('xxx', paymentDto.amount, paymentDto.date);
         return payment;
     }
 
@@ -19,7 +19,7 @@ export class PaymentMapper {
     }
 
     static toListEntity(paymentDtos: PaymentDto[]): Payment[] {
-        const payments = paymentDtos.map((p) => new Payment(p.amount, p.date));
+        const payments = paymentDtos.map((p) => new Payment('xxx21', p.amount, p.date));
         return payments;
     }
 
