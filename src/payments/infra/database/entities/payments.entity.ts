@@ -10,4 +10,7 @@ export class PaymentsEntity {
 
     @Column()
     amount: number;
+
+    @Column()
+    score: number;
 }

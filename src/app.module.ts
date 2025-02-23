@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PaymentsModule } from './payments/payments.module';
-import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
     imports: [
@@ -14,7 +14,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
             password: 'eventsnest',
             database: 'eventsnest',
             entities: [__dirname + '/**/infra/database/entities/*.entity{.ts,.js}'],
-            synchronize: true,
+            synchronize: false,
         }),
         PaymentsModule,
     ],
